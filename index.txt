@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Producto 3D y Storyboard</title>
+    
+    <!-- Tailwind CSS para un diseño moderno y adaptable -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo personalizado para usar la fuente Inter y mejorar la apariencia */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Gris oscuro para el fondo */
+            color: #F3F4F6; /* Texto claro */
+        }
+        /* Asegura que el canvas ocupe todo su contenedor */
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contenedor Principal -->
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Encabezado -->
+        <header class="text-center mb-10 md:mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold mb-2 gradient-text">Reloj Inteligente "VitalGuard"</h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">Tu tranquilidad y la de tu familia, en tu muñeca. Conoce nuestro reloj inteligente VitalGuard</p>
+        </header>
+
+        <!-- Sección del Visor 3D -->
+        <section id="viewer-3d-section" class="mb-12 md:mb-20">
+            <h2 class="text-3xl font-bold text-center mb-6 text-sky-400">Modelo 3D Interactivo</h2>
+            <div id="canvas-container" class="w-full h-[300px] md:h-[500px] lg:h-[600px] bg-gray-800 rounded-2xl shadow-2xl shadow-indigo-500/10 border border-gray-700 overflow-hidden cursor-grab active:cursor-grabbing">
+                <!-- El canvas para Three.js se insertará aquí -->
+            </div>
+             <p class="text-center text-gray-500 mt-4 text-sm">Haz clic y arrastra para rotar. Usa la rueda del ratón para hacer zoom.</p>
+        </section>
+
+        <!-- Sección del Storyboard -->
+        <section id="storyboard-section">
+            <h2 class="text-3xl font-bold text-center mb-8 text-sky-400">Así Funciona VitalGuard</h2>
+            
+            <!-- Grid responsivo para las imágenes del storyboard -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Panel 1 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story1.png" 
+                         alt="Escena 1: Preocupación Familiar" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">1. Preocupación Familiar</h3>
+                    <p class="text-gray-400 text-sm">Don Ernesto vive solo, su familia se preocupa por su salud y bienestar cada día.</p>
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story2.png" 
+                         alt="Escena 2: Rutina Diaria" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">2. Rutina Diaria</h3>
+                    <p class="text-gray-400 text-sm">Cada mañana Don Ernesto se coloca su reloj inteligente "VitalGuard" parte de su rutina diaria.</p>
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story3.png" 
+                         alt="Escena 3: Monitoreo Constante" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">3. Monitoreo Constante</h3>
+                    <p class="text-gray-400 text-sm">El reloj monitorea su ritmo cardiaco, presión y le recuerda cuando tomar su medicación.</p>
+                </div>
+
+                <!-- Panel 4 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story4.png" 
+                         alt="Escena 4: Detección de Caídas" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">4. Detección de Caídas</h3>
+                    <p class="text-gray-400 text-sm">Una caída, El reloj lo detecta automaticamente y activa el protocolo de emergencia.</p>
+                </div>
+
+                <!-- Panel 5 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story5.png" 
+                         alt="Escena 5: Alerta Automática" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">5. Alerta Automática</h3>
+                    <p class="text-gray-400 text-sm">Su familia y el centro médico reciben una alerta con su ubicación y estado de salud.</p>
+                </div>
+
+                <!-- Panel 6 -->
+                <div class="bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://raw.githubusercontent.com/jhongao21/emprendimiento_reloj/main/story6.png" 
+                         alt="Escena 6: Asistencia a Tiempo" 
+                         class="w-full h-48 object-cover rounded-lg mb-4"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Error+al+cargar';">
+                    <h3 class="font-bold text-xl mb-1 text-indigo-400">6. Asistencia a Tiempo</h3>
+                    <p class="text-gray-400 text-sm">Gracias a la alerta automática Don Ernesto recibe asistencia médica a tiempo.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 mt-12 border-t border-gray-800">
+        <p class="text-sm text-gray-500">&copy; 2024 VitalGuard. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Three.js y Addons -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        // Importa los módulos necesarios de Three.js
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        // --- Configuración básica ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        
+        // --- Cámara ---
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        // AJUSTE DE ZOOM: Se aumenta el valor de Z para alejar la cámara
+        camera.position.set(0, 0.2, 1.8);
+
+        // --- Renderer ---
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        container.appendChild(renderer.domElement);
+
+        // --- Controles de Órbita ---
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.screenSpacePanning = false;
+        controls.minDistance = 0.5;
+        controls.maxDistance = 5;
+        controls.target.set(0, 0, 0);
+
+        // --- Iluminación ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(8, 10, 5);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight);
+        
+        const pointLight = new THREE.PointLight(0xa78bfa, 15, 100);
+        pointLight.position.set(-5, -3, 2);
+        scene.add(pointLight);
+
+        // --- Carga del Modelo 3D (.glb) ---
+        const loader = new GLTFLoader();
+        const modelURL = 'https://raw.githack.com/jhongao21/emprendimiento_reloj/main/relojweb.glb';
+
+        loader.load(modelURL, function (gltf) {
+            const model = gltf.scene;
+
+            // --- INICIO DE LA CORRECCIÓN PARA EL CRISTAL DEL RELOJ ---
+            let glassMaterialFound = false;
+            model.traverse(function (node) {
+                if (node.isMesh) {
+                    node.castShadow = true;
+                    node.receiveShadow = true;
+                    if (node.material && node.material.name === 'Material.002') {
+                        glassMaterialFound = true;
+                        const newGlassMaterial = new THREE.MeshPhysicalMaterial({
+                            color: 0xeeeeee,
+                            metalness: 0.1,
+                            roughness: 0.05,
+                            transmission: 0.97,
+                            ior: 1.52,
+                            thickness: 0.5,
+                            transparent: true,
+                        });
+                        node.material = newGlassMaterial;
+                    }
+                }
+            });
+
+            if (!glassMaterialFound) {
+                console.warn("ADVERTENCIA: No se encontró el material del cristal ('Material.002'). El cristal puede no verse correctamente. Por favor, verifica el nombre del material en tu archivo .glb.");
+            }
+            // --- FIN DE LA CORRECCIÓN ---
+
+            model.scale.set(10, 10, 10);
+            model.position.set(0, -0.2, 0); 
+            
+            scene.add(model);
+            
+        }, undefined, function (error) {
+            console.error('Un error ocurrió al cargar el modelo:', error);
+        });
+
+
+        // --- Bucle de Animación ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update(); 
+            renderer.render(scene, camera);
+        }
+
+        // --- Manejo de redimensionamiento de la ventana ---
+        function onWindowResize() {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
+        }
+        window.addEventListener('resize', onWindowResize);
+
+        // Iniciar la animación
+        animate();
+    </script>
+</body>
+</html>
+
